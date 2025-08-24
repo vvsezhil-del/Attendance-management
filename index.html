@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Website</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+<style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.headernav {
+  position: relative;
+}
+
+.nameofcollege {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.aff, .auto {
+  font-size: 1rem;
+}
+
+/* Navigation */
+.home .nav-link {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+}
+
+.home .nav-link:hover {
+  color: #007bff !important;
+}
+
+/* Middle Section */
+.quality {
+  font-size: 2.5rem;
+  color: #34495e;
+}
+
+.empower {
+  font-size: 1.2rem;
+}
+
+/* Slideshow */
+.slideshow-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.carousel-inner img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.scrolling-text {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.scrolling-text span {
+  display: inline-block;
+  animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .nameofcollege {
+    font-size: 1.8rem;
+  }
+
+  .quality {
+    font-size: 1.8rem;
+  }
+
+  .empower {
+    font-size: 1rem;
+  }
+
+  .carousel-inner img {
+    height: 300px;
+  }
+
+  .home .nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home .nav-link {
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .nameofcollege {
+    font-size: 1.5rem;
+  }
+
+  .aff, .auto {
+    font-size: 0.9rem;
+  }
+
+  .carousel-inner img {
+    height: 200px;
+  }
+
+  .scrolling-text {
+    font-size: 1rem;
+  }
+}
+
+/* Founders Section (Courses Offered) */
+.founders-section {
+  padding: 50px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.founders-section h2:not(.section-title) {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.founders-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.undergraduate {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.undergraduate:hover {
+  transform: translateY(-5px);
+}
+
+.founder-info h3 {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.bio {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Founders Section 2 */
+.founders-section2 {
+  padding: 50px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.founders-container2 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.undergraduate2 {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.undergraduate2:hover {
+  transform: translateY(-5px);
+}
+
+.undergraduate2-name {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.bio2 {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Campus Section */
+.campus-section {
+  padding: 50px 0;
+  background-color: #e9ecef;
+}
+
+.campus-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+  align-items: center;
+}
+
+.campus-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.campus-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.campus-content {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.campus-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.campus-description, .campus-highlight {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.explore-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.explore-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .founders-container, .founders-container2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .undergraduate, .undergraduate2 {
+    max-width: 500px;
+  }
+
+  .campus-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .campus-content {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title, .campus-title {
+    font-size: 1.8rem;
+  }
+
+  .founders-section h2:not(.section-title) {
+    font-size: 1.3rem;
+  }
+
+  .founder-info h3, .undergraduate2-name {
+    font-size: 1.3rem;
+  }
+
+  .bio, .bio2, .campus-description, .campus-highlight {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title, .campus-title {
+    font-size: 1.5rem;
+  }
+
+  .founders-section h2:not(.section-title) {
+    font-size: 1.1rem;
+  }
+
+  .undergraduate, .undergraduate2 {
+    padding: 15px;
+  }
+
+  .explore-btn {
+    padding: 8px 15px;
+  }
+}
+/* Footer Styles */
+.footer {
+  background-color: #34495e;
+  padding: 40px 20px;
+  color: #ecf0f1;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-about, .footer-links, .footer-contact {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-about h2, .footer-links h2, .footer-contact h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #3498db;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .headernav {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .nameofthecollege {
+    font-size: 2rem;
+  }
+
+  .home a {
+    margin: 5px 10px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title, .enrolltext {
+    font-size: 2rem;
+  }
+
+  .section-subtitle, .enrollexperience {
+    font-size: 1rem;
+  }
+
+  .home {
+    padding: 10px 0;
+  }
+
+  .home a {
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+  }
+
+  .contact-map iframe {
+    height: 300px;
+  }
+
+  .contact-card {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .nameofthecollege {
+    font-size: 1.5rem;
+  }
+
+  .aff, .auto {
+    font-size: 0.9rem;
+  }
+
+  .section-title, .enrolltext {
+    font-size: 1.8rem;
+  }
+
+  .card-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+  }
+}
+
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="headernav py-3 bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-3 text-center">
+          <img src="./IMAGES/collegelogo.jpg" class="logo img-fluid" alt="logo" style="max-height: 80px;">
+        </div>
+        <div class="col-md-6 text-center">
+          <h1 class="nameofcollege">ERODE ARTS AND SCIENCE COLLEGE</h1>
+          <h4 class="aff text-muted">Affiliated to Bharathiar University, Coimbatore</h4>
+          <h4 class="auto text-muted">Autonomous Co-Education</h4>
+        </div>
+        <div class="col-md-3 text-end">
+          <a href="./Login/register.php" class="btn btn-primary aishe me-2">REGISTER</a>
+          <a href="./contact.html" class="btn btn-outline-secondary contact">CONTACT</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="home bg-dark py-2">
+    <div class="container">
+      <ul class="nav justify-content-center">
+        <li class="nav-item"><a href="#" class="nav-link text-white h">HOME</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white about">ABOUT</a></li>
+        <li class="nav-item"><a href="./Login/register.php" class="nav-link text-white governance">REGISTER</a></li>
+        <li class="nav-item"><a href="./Login/login.php" class="nav-link text-white department">LOGIN AS STAFF</a></li>
+        <li class="nav-item"><a href="./Login/Login_students.php" class="nav-link text-white programmes">LOGIN AS STUDENT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Middle Section with Slideshow -->
+  <div class="middle py-5 bg-light">
+    <div class="container text-center">
+      <h1 class="quality">Quality Education Since 1972</h1>
+      <h3 class="empower text-muted">Empowering Minds, Shaping Futures</h3>
+      <div class="slideshow-container position-relative mt-4">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./IMAGES/erode college.jpg" class="d-block w-100 slide" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+              <img src="./IMAGES/erode college 3.avif" class="d-block w-100 slide" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+              <img src="./IMAGES/erode college 4.avif" class="d-block w-100 slide" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+              <img src="./IMAGES/erode college 5.avif" class="d-block w-100 slide" alt="Image 4">
+            </div>
+            <div class="carousel-item">
+              <img src="./IMAGES/erode college 6.avif" class="d-block w-100 slide" alt="Image 5">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="scrolling-text text-center mt-3">
+          <span>Welcome to Erode Arts and Science College Autonomous (Co-Education) Coimbatore</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="founders-section">
+    <h2 class="section-title">COURSES OFFERED</h2>
+    <h2>Discover Programmes for a Promising Future</h2>
+    <div class="founders-container">
+
+        <!-- Founder 1 -->
+        <div class="undergraduate">
+            <div class="founder-info">
+                <h3 class="undergraduate-name">Undergraduate</h3>
+                <p class="bio">
+                    Explore numerous career opportunities with our UG programmes of strategic importance.
+                </p>
+            </div>
+        </div>
+
+        <!-- Founder 2 -->
+        <div class="undergraduate">
+            
+            <div class="founder-info">
+                <h3 class="undergraduate-name">Postgraduate</h3>
+                <p class="bio">
+                    Ascend the career ladder by enrolling in the PG programmes offered.
+                </p>
+            </div>
+        </div>
+
+        <!-- Founder 3 -->
+        <div class="undergraduate">
+           
+            <div class="founder-info">
+                <h3 class="undergraduate-name">Research</h3>
+                <p class="bio">
+                    Widen your knowledge through enrollment in the diverse research programme offered.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="founders-section2">
+    <div class="founders-container2">
+
+        <!-- Founder 1 -->
+        <div class="undergraduate2">
+            <div class="founder-info">
+                <h3 class="undergraduate-name">Value Added Courses</h3>
+                <p class="bio">
+                    Support the development of communication skills and employability, aligning with the demands of job market.
+                </p>
+            </div>
+        </div>
+
+        <!-- Founder 2 -->
+        <div class="undergraduate">
+            
+            <div class="founder-info">
+                <h3 class="undergraduate2-name">IAS Academy</h3>
+                <p class="bio">
+                    A distinctive initiative to support civil service aspirants.</p>
+            </div>
+        </div>
+
+        <!-- Founder 3 -->
+        <div class="undergraduate">
+           
+            <div class="founder-info">
+                <h3 class="undergraduate2-name">Placement</h3>
+                <p class="bio2">
+                    Regular on/off campus drives and job fairs that help students to secure employment.
+                </p>
+            </div>
+        </div>
+     </div>
+</section>
+<section class="campus-section">
+  <div class="campus-container">
+      
+      <!-- Left: Image -->
+      <div class="campus-image">
+          <img src="./IMAGES/campus.jpg" alt="Campus Life">
+      </div>
+<div class="campus-content">
+  <h2 class="campus-title">Campus Life</h2>
+  <p class="campus-description">
+      Experience a dynamic student life that extends beyond the classroom. EASC offers a 
+      supportive environment fostering personal growth, learning, and lifelong friendships. 
+      The vibrant campus is filled with academic, cultural, and social activities, ensuring 
+      a holistic student experience.
+  </p>
+  <p class="campus-highlight">
+      With state-of-the-art facilities and a collaborative learning environment, students 
+      are equipped to excel academically and personally. Join us in shaping a brighter future!
+  </p>
+  <a href="contact.html" class="explore-btn">Contact</a>
+</div></div>
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- About Section -->
+        <div class="footer-about">
+            <h2>About EASC</h2>
+            <p>Erode Arts and Science College is committed to excellence in academics, sports, and culture, providing a holistic learning environment.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#">IQAC</a></li>
+                <li><a href="#">NAAC</a></li>
+                <li><a href="#">NIRF</a></li>
+                <li><a href="#">AISHE</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-contact">
+            <h2>Contact Us</h2>
+            <p>Erode Arts and Science College
+                205, Chennimalai Road, Rangampalayam, Erode, Tamilnadu, India - 638009</p>
+            <p><strong>Phone:</strong> 0424 2430004
+
+               <br> 0424 2430095</p>
+            <p><strong>Email:</strong> erodearts2006@yahoo.co.in<br>
+                                       info@easc.ac.in</p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="footer-links">
+            <h2>Quick info</h2>
+            <div class="social-icons">
+                <li><a href="#">Aided Programmes</a></li>
+               <li> <a href="#">Unaided Programmes</a></li>
+               <li><a href="#">Diploma/Certification Course</a></li> 
+               <li><a href="#">Research Programmes</a></li> 
+                <li><a href="#">Curriculum and Syllabi</a></li>
+                <li><a href="#">Acedemic Calender</i></a></li>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>Copyright 2025 - Erode Arts and Science College</p>
+    </div>
+</footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
